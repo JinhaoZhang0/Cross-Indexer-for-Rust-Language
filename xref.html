@@ -1,0 +1,698 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>xref for binary: fib</title>
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        <style>
+            .code-block
+            {
+                display: table;
+                box-sizing: border-box;
+                position: relative;
+                table-layout: fixed;
+                width: 100%;
+            }
+            pre
+            {
+                margin: 0;
+                overflow: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+            .asm-block,
+            .src-block
+            {
+                width: 50%;
+                display: table-cell;
+                vertical-align: top;
+            }
+	    .grey {
+            	color: #888
+            }
+            li.L0, li.L1, li.L2, li.L3,
+            li.L5, li.L6, li.L7, li.L8
+            {
+                list-style-type: decimal !important;
+            }
+        </style>
+    </head>
+    <body onload="PR.prettyPrint()">
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:938">
+<span class="nocode"><a name="asmline6dc0">6dc0</a></span>: 	48 83 ec 28          	sub    $0x28,%rsp
+<span class="nocode"><a name="asmline6dc4">6dc4</a></span>: 	89 7c 24 24          	mov    %edi,0x24(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="prettyprint linenums:1">
+pub fn fib(n: i32) -> i32 {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:940">
+<span class="nocode"><a name="asmline6dc8">6dc8</a></span>: 	83 ff 02             	cmp    $0x2,%edi
+<span class="nocode"><a name="asmline6dcb">6dcb</a></span>: 	89 7c 24 1c          	mov    %edi,0x1c(%rsp)
+<span class="nocode"><a name="asmline6dcf">6dcf</a></span>: 	7c 15                	jl     6de6 <_ZN6simple3fib3fib17hf0933cb54775d000E+0x26><span class="nocode">(REF: <a href="#asmline6de6">6de6</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="prettyprint linenums:2">
+    if n < 2 {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:944">
+<span class="nocode"><a name="asmline6dd5">6dd5</a></span>: 	83 e8 02             	sub    $0x2,%eax
+<span class="nocode"><a name="asmline6dd8">6dd8</a></span>: 	0f 90 c1             	seto   %cl
+<span class="nocode"><a name="asmline6ddb">6ddb</a></span>: 	f6 c1 01             	test   $0x1,%cl
+<span class="nocode"><a name="asmline6dde">6dde</a></span>: 	89 44 24 18          	mov    %eax,0x18(%rsp)
+<span class="nocode"><a name="asmline6de2">6de2</a></span>: 	75 5f                	jne    6e43 <_ZN6simple3fib3fib17hf0933cb54775d000E+0x83><span class="nocode">(REF: <a href="#asmline6e43">6e43</a>)</span>
+<span class="nocode"><a name="asmline6de4">6de4</a></span>: 	eb 0a                	jmp    6df0 <_ZN6simple3fib3fib17hf0933cb54775d000E+0x30><span class="nocode">(REF: <a href="#asmline6df0">6df0</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="prettyprint linenums:5">
+        fib(n - 2) + fib (n - 1)	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:951">
+<span class="nocode"><a name="asmline6dea">6dea</a></span>: 	89 44 24 20          	mov    %eax,0x20(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="prettyprint linenums:3">
+        n	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:952">
+<span class="nocode"><a name="asmline6dee">6dee</a></span>: 	eb 4a                	jmp    6e3a <_ZN6simple3fib3fib17hf0933cb54775d000E+0x7a><span class="nocode">(REF: <a href="#asmline6e3a">6e3a</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="grey">
+   2.	    if n < 2 {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:954">
+<span class="nocode"><a name="asmline6df4">6df4</a></span>: 	e8 c7 ff ff ff       	callq  6dc0 <_ZN6simple3fib3fib17hf0933cb54775d000E><span class="nocode">(REF: <a href="#asmline6dc0">6dc0</a>)</span>
+<span class="nocode"><a name="asmline6df9">6df9</a></span>: 	89 44 24 14          	mov    %eax,0x14(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="grey">
+   5.	        fib(n - 2) + fib (n - 1)	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:957">
+<span class="nocode"><a name="asmline6e01">6e01</a></span>: 	ff c8                	dec    %eax
+<span class="nocode"><a name="asmline6e03">6e03</a></span>: 	0f 90 c1             	seto   %cl
+<span class="nocode"><a name="asmline6e06">6e06</a></span>: 	f6 c1 01             	test   $0x1,%cl
+<span class="nocode"><a name="asmline6e09">6e09</a></span>: 	89 44 24 10          	mov    %eax,0x10(%rsp)
+<span class="nocode"><a name="asmline6e0d">6e0d</a></span>: 	75 52                	jne    6e61 <_ZN6simple3fib3fib17hf0933cb54775d000E+0xa1><span class="nocode">(REF: <a href="#asmline6e61">6e61</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="grey">
+   5.	        fib(n - 2) + fib (n - 1)	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:963">
+<span class="nocode"><a name="asmline6e13">6e13</a></span>: 	e8 a8 ff ff ff       	callq  6dc0 <_ZN6simple3fib3fib17hf0933cb54775d000E><span class="nocode">(REF: <a href="#asmline6dc0">6dc0</a>)</span>
+<span class="nocode"><a name="asmline6e18">6e18</a></span>: 	89 44 24 0c          	mov    %eax,0xc(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="grey">
+   5.	        fib(n - 2) + fib (n - 1)	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:967">
+<span class="nocode"><a name="asmline6e24">6e24</a></span>: 	01 c8                	add    %ecx,%eax
+<span class="nocode"><a name="asmline6e26">6e26</a></span>: 	0f 90 c2             	seto   %dl
+<span class="nocode"><a name="asmline6e29">6e29</a></span>: 	f6 c2 01             	test   $0x1,%dl
+<span class="nocode"><a name="asmline6e2c">6e2c</a></span>: 	89 44 24 08          	mov    %eax,0x8(%rsp)
+<span class="nocode"><a name="asmline6e30">6e30</a></span>: 	75 4d                	jne    6e7f <_ZN6simple3fib3fib17hf0933cb54775d000E+0xbf><span class="nocode">(REF: <a href="#asmline6e7f">6e7f</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="grey">
+   5.	        fib(n - 2) + fib (n - 1)	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:973">
+<span class="nocode"><a name="asmline6e36">6e36</a></span>: 	89 44 24 20          	mov    %eax,0x20(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="grey">
+   5.	        fib(n - 2) + fib (n - 1)	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:974">
+<span class="nocode"><a name="asmline6e3a">6e3a</a></span>: 	8b 44 24 20          	mov    0x20(%rsp),%eax
+<span class="nocode"><a name="asmline6e3e">6e3e</a></span>: 	48 83 c4 28          	add    $0x28,%rsp
+<span class="nocode"><a name="asmline6e42">6e42</a></span>: 	c3                   	retq   	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="prettyprint linenums:7">
+}	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:977">
+<span class="nocode"><a name="asmline6e43">6e43</a></span>: 	48 8d 3d 56 22 03 00 	lea    0x32256(%rip),%rdi        # 390a0 <str.0>
+<span class="nocode"><a name="asmline6e4a">6e4a</a></span>: 	48 8d 15 37 06 04 00 	lea    0x40637(%rip),%rdx        # 47488 <__dso_handle+0xd0>
+<span class="nocode"><a name="asmline6e51">6e51</a></span>: 	48 8d 05 b8 c4 02 00 	lea    0x2c4b8(%rip),%rax        # 33310 <_ZN4core9panicking5panic17h49577d7675e529f3E>
+<span class="nocode"><a name="asmline6e58">6e58</a></span>: 	be 21 00 00 00       	mov    $0x21,%esi
+<span class="nocode"><a name="asmline6e5d">6e5d</a></span>: 	ff d0                	callq  *%rax
+<span class="nocode"><a name="asmline6e5f">6e5f</a></span>: 	0f 0b                	ud2    
+<span class="nocode"><a name="asmline6e61">6e61</a></span>: 	48 8d 3d 38 22 03 00 	lea    0x32238(%rip),%rdi        # 390a0 <str.0>
+<span class="nocode"><a name="asmline6e68">6e68</a></span>: 	48 8d 15 31 06 04 00 	lea    0x40631(%rip),%rdx        # 474a0 <__dso_handle+0xe8>
+<span class="nocode"><a name="asmline6e6f">6e6f</a></span>: 	48 8d 05 9a c4 02 00 	lea    0x2c49a(%rip),%rax        # 33310 <_ZN4core9panicking5panic17h49577d7675e529f3E>
+<span class="nocode"><a name="asmline6e76">6e76</a></span>: 	be 21 00 00 00       	mov    $0x21,%esi
+<span class="nocode"><a name="asmline6e7b">6e7b</a></span>: 	ff d0                	callq  *%rax
+<span class="nocode"><a name="asmline6e7d">6e7d</a></span>: 	0f 0b                	ud2    
+<span class="nocode"><a name="asmline6e7f">6e7f</a></span>: 	48 8d 3d 4a 22 03 00 	lea    0x3224a(%rip),%rdi        # 390d0 <str.1>
+<span class="nocode"><a name="asmline6e86">6e86</a></span>: 	48 8d 15 2b 06 04 00 	lea    0x4062b(%rip),%rdx        # 474b8 <__dso_handle+0x100>
+<span class="nocode"><a name="asmline6e8d">6e8d</a></span>: 	48 8d 05 7c c4 02 00 	lea    0x2c47c(%rip),%rax        # 33310 <_ZN4core9panicking5panic17h49577d7675e529f3E>
+<span class="nocode"><a name="asmline6e94">6e94</a></span>: 	be 1c 00 00 00       	mov    $0x1c,%esi
+<span class="nocode"><a name="asmline6e99">6e99</a></span>: 	ff d0                	callq  *%rax
+<span class="nocode"><a name="asmline6e9b">6e9b</a></span>: 	0f 0b                	ud2    	</pre>
+			</div>
+			<div class="src-block">
+				<span>fib.rs</span>
+				<pre class="grey">
+   5.	        fib(n - 2) + fib (n - 1)	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:631">
+<span class="nocode"><a name="asmline6900">6900</a></span>: 	48 81 ec a8 01 00 00 	sub    $0x1a8,%rsp	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:5">
+fn main() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:632">
+<span class="nocode"><a name="asmline6907">6907</a></span>: 	c6 84 24 7f 01 00 00 	movb   $0x0,0x17f(%rsp)
+<span class="nocode"><a name="asmline690e">690e</a></span>: 	00 
+<span class="nocode"><a name="asmline690f">690f</a></span>: 	48 8d 7c 24 60       	lea    0x60(%rsp),%rdi
+<span class="nocode"><a name="asmline6914">6914</a></span>: 	ff 15 66 34 04 00    	callq  *0x43466(%rip)        # 49d80 <_GLOBAL_OFFSET_TABLE_+0x448><span class="nocode">(REF: <a href="#asmline49d80">49d80</a>)</span>
+<span class="nocode"><a name="asmline691a">691a</a></span>: 	eb 0f                	jmp    692b <_ZN6simple4main17hb3c0a95b3b65872dE+0x2b><span class="nocode">(REF: <a href="#asmline692b">692b</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:6">
+    for argument in env::args() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:637">
+<span class="nocode"><a name="asmline691c">691c</a></span>: 	48 8b bc 24 80 01 00 	mov    0x180(%rsp),%rdi
+<span class="nocode"><a name="asmline6923">6923</a></span>: 	00 
+<span class="nocode"><a name="asmline6924">6924</a></span>: 	e8 57 f7 ff ff       	callq  6080 <_Unwind_Resume@plt><span class="nocode">(REF: <a href="#asmline6080">6080</a>)</span>
+<span class="nocode"><a name="asmline6929">6929</a></span>: 	0f 0b                	ud2    	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   5.	fn main() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:641">
+<span class="nocode"><a name="asmline692b">692b</a></span>: 	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+<span class="nocode"><a name="asmline6930">6930</a></span>: 	48 8d 74 24 60       	lea    0x60(%rsp),%rsi
+<span class="nocode"><a name="asmline6935">6935</a></span>: 	e8 96 0e 00 00       	callq  77d0 <_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h21b5d281a76df0b3E><span class="nocode">(REF: <a href="#asmline77d0">77d0</a>)</span>
+<span class="nocode"><a name="asmline693a">693a</a></span>: 	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+<span class="nocode"><a name="asmline693f">693f</a></span>: 	48 89 84 24 80 00 00 	mov    %rax,0x80(%rsp)
+<span class="nocode"><a name="asmline6946">6946</a></span>: 	00 
+<span class="nocode"><a name="asmline6947">6947</a></span>: 	48 8b 44 24 48       	mov    0x48(%rsp),%rax
+<span class="nocode"><a name="asmline694c">694c</a></span>: 	48 89 84 24 88 00 00 	mov    %rax,0x88(%rsp)
+<span class="nocode"><a name="asmline6953">6953</a></span>: 	00 
+<span class="nocode"><a name="asmline6954">6954</a></span>: 	48 8b 44 24 50       	mov    0x50(%rsp),%rax
+<span class="nocode"><a name="asmline6959">6959</a></span>: 	48 89 84 24 90 00 00 	mov    %rax,0x90(%rsp)
+<span class="nocode"><a name="asmline6960">6960</a></span>: 	00 
+<span class="nocode"><a name="asmline6961">6961</a></span>: 	48 8b 44 24 58       	mov    0x58(%rsp),%rax
+<span class="nocode"><a name="asmline6966">6966</a></span>: 	48 89 84 24 98 00 00 	mov    %rax,0x98(%rsp)
+<span class="nocode"><a name="asmline696d">696d</a></span>: 	00 
+<span class="nocode"><a name="asmline696e">696e</a></span>: 	48 8d 05 eb 06 01 00 	lea    0x106eb(%rip),%rax        # 17060 <_ZN73_$LT$std..env..Args$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he05dd6a796ebd410E>
+<span class="nocode"><a name="asmline6975">6975</a></span>: 	48 8d bc 24 b8 00 00 	lea    0xb8(%rsp),%rdi
+<span class="nocode"><a name="asmline697c">697c</a></span>: 	00 
+<span class="nocode"><a name="asmline697d">697d</a></span>: 	48 8d b4 24 80 00 00 	lea    0x80(%rsp),%rsi
+<span class="nocode"><a name="asmline6984">6984</a></span>: 	00 
+<span class="nocode"><a name="asmline6985">6985</a></span>: 	ff d0                	callq  *%rax
+<span class="nocode"><a name="asmline6987">6987</a></span>: 	eb 0f                	jmp    6998 <_ZN6simple4main17hb3c0a95b3b65872dE+0x98><span class="nocode">(REF: <a href="#asmline6998">6998</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   6.	    for argument in env::args() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:663">
+<span class="nocode"><a name="asmline6989">6989</a></span>: 	48 8d bc 24 80 00 00 	lea    0x80(%rsp),%rdi
+<span class="nocode"><a name="asmline6990">6990</a></span>: 	00 
+<span class="nocode"><a name="asmline6991">6991</a></span>: 	e8 ea 06 00 00       	callq  7080 <_ZN4core3ptr13drop_in_place17h6a82c8483513ecb4E><span class="nocode">(REF: <a href="#asmline7080">7080</a>)</span>
+<span class="nocode"><a name="asmline6996">6996</a></span>: 	eb 84                	jmp    691c <_ZN6simple4main17hb3c0a95b3b65872dE+0x1c><span class="nocode">(REF: <a href="#asmline691c">691c</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:12">
+    }	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:667">
+<span class="nocode"><a name="asmline6998">6998</a></span>: 	48 8b 84 24 b8 00 00 	mov    0xb8(%rsp),%rax
+<span class="nocode"><a name="asmline699f">699f</a></span>: 	00 
+<span class="nocode"><a name="asmline69a0">69a0</a></span>: 	48 85 c0             	test   %rax,%rax
+<span class="nocode"><a name="asmline69a3">69a3</a></span>: 	0f 95 c1             	setne  %cl
+<span class="nocode"><a name="asmline69a6">69a6</a></span>: 	0f b6 d1             	movzbl %cl,%edx
+<span class="nocode"><a name="asmline69a9">69a9</a></span>: 	89 d0                	mov    %edx,%eax	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   6.	    for argument in env::args() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:673">
+<span class="nocode"><a name="asmline69ab">69ab</a></span>: 	74 04                	je     69b1 <_ZN6simple4main17hb3c0a95b3b65872dE+0xb1><span class="nocode">(REF: <a href="#asmline69b1">69b1</a>)</span>
+<span class="nocode"><a name="asmline69ad">69ad</a></span>: 	eb 00                	jmp    69af <_ZN6simple4main17hb3c0a95b3b65872dE+0xaf><span class="nocode">(REF: <a href="#asmline69af">69af</a>)</span>
+<span class="nocode"><a name="asmline69af">69af</a></span>: 	eb 1c                	jmp    69cd <_ZN6simple4main17hb3c0a95b3b65872dE+0xcd><span class="nocode">(REF: <a href="#asmline69cd">69cd</a>)</span>
+<span class="nocode"><a name="asmline69b1">69b1</a></span>: 	c6 84 24 7f 01 00 00 	movb   $0x0,0x17f(%rsp)
+<span class="nocode"><a name="asmline69b8">69b8</a></span>: 	00 
+<span class="nocode"><a name="asmline69b9">69b9</a></span>: 	48 8d bc 24 80 00 00 	lea    0x80(%rsp),%rdi
+<span class="nocode"><a name="asmline69c0">69c0</a></span>: 	00 
+<span class="nocode"><a name="asmline69c1">69c1</a></span>: 	e8 ba 06 00 00       	callq  7080 <_ZN4core3ptr13drop_in_place17h6a82c8483513ecb4E><span class="nocode">(REF: <a href="#asmline7080">7080</a>)</span>
+<span class="nocode"><a name="asmline69c6">69c6</a></span>: 	e9 05 02 00 00       	jmpq   6bd0 <_ZN6simple4main17hb3c0a95b3b65872dE+0x2d0><span class="nocode">(REF: <a href="#asmline6bd0">6bd0</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   12.	    }	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:682">
+<span class="nocode"><a name="asmline69cb">69cb</a></span>: 	0f 0b                	ud2    
+<span class="nocode"><a name="asmline69cd">69cd</a></span>: 	48 8b 84 24 c8 00 00 	mov    0xc8(%rsp),%rax
+<span class="nocode"><a name="asmline69d4">69d4</a></span>: 	00 
+<span class="nocode"><a name="asmline69d5">69d5</a></span>: 	48 89 84 24 e0 00 00 	mov    %rax,0xe0(%rsp)
+<span class="nocode"><a name="asmline69dc">69dc</a></span>: 	00 
+<span class="nocode"><a name="asmline69dd">69dd</a></span>: 	0f 10 84 24 b8 00 00 	movups 0xb8(%rsp),%xmm0
+<span class="nocode"><a name="asmline69e4">69e4</a></span>: 	00 
+<span class="nocode"><a name="asmline69e5">69e5</a></span>: 	0f 29 84 24 d0 00 00 	movaps %xmm0,0xd0(%rsp)
+<span class="nocode"><a name="asmline69ec">69ec</a></span>: 	00 
+<span class="nocode"><a name="asmline69ed">69ed</a></span>: 	48 8b 84 24 e0 00 00 	mov    0xe0(%rsp),%rax
+<span class="nocode"><a name="asmline69f4">69f4</a></span>: 	00 
+<span class="nocode"><a name="asmline69f5">69f5</a></span>: 	48 89 84 24 00 01 00 	mov    %rax,0x100(%rsp)
+<span class="nocode"><a name="asmline69fc">69fc</a></span>: 	00 
+<span class="nocode"><a name="asmline69fd">69fd</a></span>: 	0f 28 84 24 d0 00 00 	movaps 0xd0(%rsp),%xmm0
+<span class="nocode"><a name="asmline6a04">6a04</a></span>: 	00 
+<span class="nocode"><a name="asmline6a05">6a05</a></span>: 	0f 29 84 24 f0 00 00 	movaps %xmm0,0xf0(%rsp)
+<span class="nocode"><a name="asmline6a0c">6a0c</a></span>: 	00 
+<span class="nocode"><a name="asmline6a0d">6a0d</a></span>: 	c6 84 24 7f 01 00 00 	movb   $0x1,0x17f(%rsp)
+<span class="nocode"><a name="asmline6a14">6a14</a></span>: 	01 
+<span class="nocode"><a name="asmline6a15">6a15</a></span>: 	48 8b 84 24 00 01 00 	mov    0x100(%rsp),%rax
+<span class="nocode"><a name="asmline6a1c">6a1c</a></span>: 	00 
+<span class="nocode"><a name="asmline6a1d">6a1d</a></span>: 	48 89 84 24 b0 00 00 	mov    %rax,0xb0(%rsp)
+<span class="nocode"><a name="asmline6a24">6a24</a></span>: 	00 
+<span class="nocode"><a name="asmline6a25">6a25</a></span>: 	0f 28 84 24 f0 00 00 	movaps 0xf0(%rsp),%xmm0
+<span class="nocode"><a name="asmline6a2c">6a2c</a></span>: 	00 
+<span class="nocode"><a name="asmline6a2d">6a2d</a></span>: 	0f 29 84 24 a0 00 00 	movaps %xmm0,0xa0(%rsp)
+<span class="nocode"><a name="asmline6a34">6a34</a></span>: 	00 
+<span class="nocode"><a name="asmline6a35">6a35</a></span>: 	c6 84 24 7f 01 00 00 	movb   $0x0,0x17f(%rsp)
+<span class="nocode"><a name="asmline6a3c">6a3c</a></span>: 	00 
+<span class="nocode"><a name="asmline6a3d">6a3d</a></span>: 	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
+<span class="nocode"><a name="asmline6a44">6a44</a></span>: 	00 
+<span class="nocode"><a name="asmline6a45">6a45</a></span>: 	48 89 84 24 20 01 00 	mov    %rax,0x120(%rsp)
+<span class="nocode"><a name="asmline6a4c">6a4c</a></span>: 	00 
+<span class="nocode"><a name="asmline6a4d">6a4d</a></span>: 	0f 28 84 24 a0 00 00 	movaps 0xa0(%rsp),%xmm0
+<span class="nocode"><a name="asmline6a54">6a54</a></span>: 	00 
+<span class="nocode"><a name="asmline6a55">6a55</a></span>: 	0f 29 84 24 10 01 00 	movaps %xmm0,0x110(%rsp)
+<span class="nocode"><a name="asmline6a5c">6a5c</a></span>: 	00 
+<span class="nocode"><a name="asmline6a5d">6a5d</a></span>: 	48 8d bc 24 10 01 00 	lea    0x110(%rsp),%rdi
+<span class="nocode"><a name="asmline6a64">6a64</a></span>: 	00 	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   6.	    for argument in env::args() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:721">
+<span class="nocode"><a name="asmline6a65">6a65</a></span>: 	e8 26 f7 ff ff       	callq  6190 <_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc17463ab0716df77E><span class="nocode">(REF: <a href="#asmline6190">6190</a>)</span>
+<span class="nocode"><a name="asmline6a6a">6a6a</a></span>: 	48 89 54 24 38       	mov    %rdx,0x38(%rsp)
+<span class="nocode"><a name="asmline6a6f">6a6f</a></span>: 	48 89 44 24 30       	mov    %rax,0x30(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:7">
+        let number: i32 = match argument.parse() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:727">
+<span class="nocode"><a name="asmline6a80">6a80</a></span>: 	e8 5b 0a 00 00       	callq  74e0 <_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h7e5b86d6dec7cac9E><span class="nocode">(REF: <a href="#asmline74e0">74e0</a>)</span>
+<span class="nocode"><a name="asmline6a85">6a85</a></span>: 	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+<span class="nocode"><a name="asmline6a8a">6a8a</a></span>: 	eb 12                	jmp    6a9e <_ZN6simple4main17hb3c0a95b3b65872dE+0x19e><span class="nocode">(REF: <a href="#asmline6a9e">6a9e</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   7.	        let number: i32 = match argument.parse() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:730">
+<span class="nocode"><a name="asmline6a8c">6a8c</a></span>: 	48 8d bc 24 10 01 00 	lea    0x110(%rsp),%rdi
+<span class="nocode"><a name="asmline6a93">6a93</a></span>: 	00 
+<span class="nocode"><a name="asmline6a94">6a94</a></span>: 	e8 27 08 00 00       	callq  72c0 <_ZN4core3ptr13drop_in_place17ha888907761fc9594E><span class="nocode">(REF: <a href="#asmline72c0">72c0</a>)</span>
+<span class="nocode"><a name="asmline6a99">6a99</a></span>: 	e9 54 01 00 00       	jmpq   6bf2 <_ZN6simple4main17hb3c0a95b3b65872dE+0x2f2><span class="nocode">(REF: <a href="#asmline6bf2">6bf2</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   12.	    }	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:735">
+<span class="nocode"><a name="asmline6aa3">6aa3</a></span>: 	48 89 84 24 90 01 00 	mov    %rax,0x190(%rsp)
+<span class="nocode"><a name="asmline6aaa">6aaa</a></span>: 	00 
+<span class="nocode"><a name="asmline6aab">6aab</a></span>: 	48 8b 8c 24 90 01 00 	mov    0x190(%rsp),%rcx
+<span class="nocode"><a name="asmline6ab2">6ab2</a></span>: 	00 
+<span class="nocode"><a name="asmline6ab3">6ab3</a></span>: 	48 89 8c 24 28 01 00 	mov    %rcx,0x128(%rsp)
+<span class="nocode"><a name="asmline6aba">6aba</a></span>: 	00 	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   7.	        let number: i32 = match argument.parse() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:741">
+<span class="nocode"><a name="asmline6abb">6abb</a></span>: 	0f b6 94 24 28 01 00 	movzbl 0x128(%rsp),%edx
+<span class="nocode"><a name="asmline6ac2">6ac2</a></span>: 	00 
+<span class="nocode"><a name="asmline6ac3">6ac3</a></span>: 	89 d1                	mov    %edx,%ecx
+<span class="nocode"><a name="asmline6ac5">6ac5</a></span>: 	f6 c1 01             	test   $0x1,%cl
+<span class="nocode"><a name="asmline6ac8">6ac8</a></span>: 	74 06                	je     6ad0 <_ZN6simple4main17hb3c0a95b3b65872dE+0x1d0><span class="nocode">(REF: <a href="#asmline6ad0">6ad0</a>)</span>
+<span class="nocode"><a name="asmline6aca">6aca</a></span>: 	eb 00                	jmp    6acc <_ZN6simple4main17hb3c0a95b3b65872dE+0x1cc><span class="nocode">(REF: <a href="#asmline6acc">6acc</a>)</span>
+<span class="nocode"><a name="asmline6acc">6acc</a></span>: 	eb 30                	jmp    6afe <_ZN6simple4main17hb3c0a95b3b65872dE+0x1fe><span class="nocode">(REF: <a href="#asmline6afe">6afe</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:8">
+            Ok(n) => n,	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:748">
+<span class="nocode"><a name="asmline6ace">6ace</a></span>: 	0f 0b                	ud2    	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   7.	        let number: i32 = match argument.parse() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:749">
+<span class="nocode"><a name="asmline6ad0">6ad0</a></span>: 	8b 84 24 2c 01 00 00 	mov    0x12c(%rsp),%eax
+<span class="nocode"><a name="asmline6ad7">6ad7</a></span>: 	89 84 24 98 01 00 00 	mov    %eax,0x198(%rsp)
+<span class="nocode"><a name="asmline6ade">6ade</a></span>: 	89 84 24 9c 01 00 00 	mov    %eax,0x19c(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   8.	            Ok(n) => n,	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:752">
+<span class="nocode"><a name="asmline6ae5">6ae5</a></span>: 	48 8b 35 94 09 04 00 	mov    0x40994(%rip),%rsi        # 47480 <__dso_handle+0xc8>
+<span class="nocode"><a name="asmline6aec">6aec</a></span>: 	89 c7                	mov    %eax,%edi
+<span class="nocode"><a name="asmline6aee">6aee</a></span>: 	48 89 74 24 20       	mov    %rsi,0x20(%rsp)
+<span class="nocode"><a name="asmline6af3">6af3</a></span>: 	e8 c8 02 00 00       	callq  6dc0 <_ZN6simple3fib3fib17hf0933cb54775d000E><span class="nocode">(REF: <a href="#asmline6dc0">6dc0</a>)</span>
+<span class="nocode"><a name="asmline6af8">6af8</a></span>: 	89 44 24 1c          	mov    %eax,0x1c(%rsp)
+<span class="nocode"><a name="asmline6afc">6afc</a></span>: 	eb 1c                	jmp    6b1a <_ZN6simple4main17hb3c0a95b3b65872dE+0x21a><span class="nocode">(REF: <a href="#asmline6b1a">6b1a</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:11">
+        println!("{}", fib(number));	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:760">
+<span class="nocode"><a name="asmline6b06">6b06</a></span>: 	e8 b5 07 00 00       	callq  72c0 <_ZN4core3ptr13drop_in_place17ha888907761fc9594E><span class="nocode">(REF: <a href="#asmline72c0">72c0</a>)</span>
+<span class="nocode"><a name="asmline6b0b">6b0b</a></span>: 	eb 00                	jmp    6b0d <_ZN6simple4main17hb3c0a95b3b65872dE+0x20d><span class="nocode">(REF: <a href="#asmline6b0d">6b0d</a>)</span>
+<span class="nocode"><a name="asmline6b0d">6b0d</a></span>: 	c6 84 24 7f 01 00 00 	movb   $0x0,0x17f(%rsp)
+<span class="nocode"><a name="asmline6b14">6b14</a></span>: 	00 	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   12.	    }	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:764">
+<span class="nocode"><a name="asmline6b15">6b15</a></span>: 	e9 54 fe ff ff       	jmpq   696e <_ZN6simple4main17hb3c0a95b3b65872dE+0x6e><span class="nocode">(REF: <a href="#asmline696e">696e</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:9">
+            Err(_) => continue,	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:766">
+<span class="nocode"><a name="asmline6b1e">6b1e</a></span>: 	89 84 24 78 01 00 00 	mov    %eax,0x178(%rsp)
+<span class="nocode"><a name="asmline6b25">6b25</a></span>: 	48 8d 8c 24 78 01 00 	lea    0x178(%rsp),%rcx
+<span class="nocode"><a name="asmline6b2c">6b2c</a></span>: 	00 
+<span class="nocode"><a name="asmline6b2d">6b2d</a></span>: 	48 89 8c 24 70 01 00 	mov    %rcx,0x170(%rsp)
+<span class="nocode"><a name="asmline6b34">6b34</a></span>: 	00 
+<span class="nocode"><a name="asmline6b35">6b35</a></span>: 	48 8b 8c 24 70 01 00 	mov    0x170(%rsp),%rcx
+<span class="nocode"><a name="asmline6b3c">6b3c</a></span>: 	00 
+<span class="nocode"><a name="asmline6b3d">6b3d</a></span>: 	48 89 8c 24 a0 01 00 	mov    %rcx,0x1a0(%rsp)
+<span class="nocode"><a name="asmline6b44">6b44</a></span>: 	00 
+<span class="nocode"><a name="asmline6b45">6b45</a></span>: 	48 8d 35 94 0e 03 00 	lea    0x30e94(%rip),%rsi        # 379e0 <_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h87753a9a5e7fa689E>
+<span class="nocode"><a name="asmline6b4c">6b4c</a></span>: 	48 89 cf             	mov    %rcx,%rdi
+<span class="nocode"><a name="asmline6b4f">6b4f</a></span>: 	e8 6c 0b 00 00       	callq  76c0 <_ZN4core3fmt10ArgumentV13new17he2b55e36d99ee3d8E><span class="nocode">(REF: <a href="#asmline76c0">76c0</a>)</span>
+<span class="nocode"><a name="asmline6b54">6b54</a></span>: 	48 89 54 24 10       	mov    %rdx,0x10(%rsp)
+<span class="nocode"><a name="asmline6b59">6b59</a></span>: 	48 89 44 24 08       	mov    %rax,0x8(%rsp)	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   11.	        println!("{}", fib(number));	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:782">
+<span class="nocode"><a name="asmline6b65">6b65</a></span>: 	48 89 84 24 60 01 00 	mov    %rax,0x160(%rsp)
+<span class="nocode"><a name="asmline6b6c">6b6c</a></span>: 	00 
+<span class="nocode"><a name="asmline6b6d">6b6d</a></span>: 	48 8b 4c 24 10       	mov    0x10(%rsp),%rcx
+<span class="nocode"><a name="asmline6b72">6b72</a></span>: 	48 89 8c 24 68 01 00 	mov    %rcx,0x168(%rsp)
+<span class="nocode"><a name="asmline6b79">6b79</a></span>: 	00 
+<span class="nocode"><a name="asmline6b7a">6b7a</a></span>: 	48 8d bc 24 30 01 00 	lea    0x130(%rsp),%rdi
+<span class="nocode"><a name="asmline6b81">6b81</a></span>: 	00 
+<span class="nocode"><a name="asmline6b82">6b82</a></span>: 	ba 02 00 00 00       	mov    $0x2,%edx
+<span class="nocode"><a name="asmline6b87">6b87</a></span>: 	48 8d 8c 24 60 01 00 	lea    0x160(%rsp),%rcx
+<span class="nocode"><a name="asmline6b8e">6b8e</a></span>: 	00 
+<span class="nocode"><a name="asmline6b8f">6b8f</a></span>: 	41 b8 01 00 00 00    	mov    $0x1,%r8d
+<span class="nocode"><a name="asmline6b95">6b95</a></span>: 	48 8b 74 24 20       	mov    0x20(%rsp),%rsi
+<span class="nocode"><a name="asmline6b9a">6b9a</a></span>: 	e8 f1 08 00 00       	callq  7490 <_ZN4core3fmt9Arguments6new_v117h4e611289512e62a3E><span class="nocode">(REF: <a href="#asmline7490">7490</a>)</span>
+<span class="nocode"><a name="asmline6b9f">6b9f</a></span>: 	eb 00                	jmp    6ba1 <_ZN6simple4main17hb3c0a95b3b65872dE+0x2a1><span class="nocode">(REF: <a href="#asmline6ba1">6ba1</a>)</span>
+<span class="nocode"><a name="asmline6ba1">6ba1</a></span>: 	48 8d 05 28 1e 01 00 	lea    0x11e28(%rip),%rax        # 189d0 <_ZN3std2io5stdio6_print17h74590ce298cc2720E>
+<span class="nocode"><a name="asmline6ba8">6ba8</a></span>: 	48 8d bc 24 30 01 00 	lea    0x130(%rsp),%rdi
+<span class="nocode"><a name="asmline6baf">6baf</a></span>: 	00 
+<span class="nocode"><a name="asmline6bb0">6bb0</a></span>: 	ff d0                	callq  *%rax	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   11.	        println!("{}", fib(number));	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:803">
+<span class="nocode"><a name="asmline6bbc">6bbc</a></span>: 	e8 ff 06 00 00       	callq  72c0 <_ZN4core3ptr13drop_in_place17ha888907761fc9594E><span class="nocode">(REF: <a href="#asmline72c0">72c0</a>)</span>
+<span class="nocode"><a name="asmline6bc1">6bc1</a></span>: 	eb 00                	jmp    6bc3 <_ZN6simple4main17hb3c0a95b3b65872dE+0x2c3><span class="nocode">(REF: <a href="#asmline6bc3">6bc3</a>)</span>
+<span class="nocode"><a name="asmline6bc3">6bc3</a></span>: 	c6 84 24 7f 01 00 00 	movb   $0x0,0x17f(%rsp)
+<span class="nocode"><a name="asmline6bca">6bca</a></span>: 	00 	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   12.	    }	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:807">
+<span class="nocode"><a name="asmline6bcb">6bcb</a></span>: 	e9 9e fd ff ff       	jmpq   696e <_ZN6simple4main17hb3c0a95b3b65872dE+0x6e><span class="nocode">(REF: <a href="#asmline696e">696e</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   6.	    for argument in env::args() {	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:808">
+<span class="nocode"><a name="asmline6bd0">6bd0</a></span>: 	48 81 c4 a8 01 00 00 	add    $0x1a8,%rsp
+<span class="nocode"><a name="asmline6bd7">6bd7</a></span>: 	c3                   	retq   	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="prettyprint linenums:13">
+}	</pre>
+			</div>
+		</div>
+
+		<div class="code-block">
+			<div class="asm-block">
+				<span>~</span>
+				<pre class="prettyprint linenums:810">
+<span class="nocode"><a name="asmline6bd8">6bd8</a></span>: 	c6 84 24 7f 01 00 00 	movb   $0x0,0x17f(%rsp)
+<span class="nocode"><a name="asmline6bdf">6bdf</a></span>: 	00 
+<span class="nocode"><a name="asmline6be0">6be0</a></span>: 	48 8d bc 24 a0 00 00 	lea    0xa0(%rsp),%rdi
+<span class="nocode"><a name="asmline6be7">6be7</a></span>: 	00 
+<span class="nocode"><a name="asmline6be8">6be8</a></span>: 	e8 d3 06 00 00       	callq  72c0 <_ZN4core3ptr13drop_in_place17ha888907761fc9594E><span class="nocode">(REF: <a href="#asmline72c0">72c0</a>)</span>
+<span class="nocode"><a name="asmline6bed">6bed</a></span>: 	e9 97 fd ff ff       	jmpq   6989 <_ZN6simple4main17hb3c0a95b3b65872dE+0x89><span class="nocode">(REF: <a href="#asmline6989">6989</a>)</span>
+<span class="nocode"><a name="asmline6bf2">6bf2</a></span>: 	f6 84 24 7f 01 00 00 	testb  $0x1,0x17f(%rsp)
+<span class="nocode"><a name="asmline6bf9">6bf9</a></span>: 	01 
+<span class="nocode"><a name="asmline6bfa">6bfa</a></span>: 	75 dc                	jne    6bd8 <_ZN6simple4main17hb3c0a95b3b65872dE+0x2d8><span class="nocode">(REF: <a href="#asmline6bd8">6bd8</a>)</span>
+<span class="nocode"><a name="asmline6bfc">6bfc</a></span>: 	e9 88 fd ff ff       	jmpq   6989 <_ZN6simple4main17hb3c0a95b3b65872dE+0x89><span class="nocode">(REF: <a href="#asmline6989">6989</a>)</span>	</pre>
+			</div>
+			<div class="src-block">
+				<span>main.rs</span>
+				<pre class="grey">
+   12.	    }	</pre>
+			</div>
+		</div>
+    </body>
+</html>
